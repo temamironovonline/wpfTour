@@ -1,0 +1,26 @@
+﻿<Page x:Class="wpfTour.ListTour"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:wpfTour"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1000"
+      Title="ListTour">
+
+    <Grid>
+        <StackPanel Width="280" HorizontalAlignment="Center">
+
+            <WrapPanel HorizontalAlignment="Right">
+                <TextBlock Text="Введите текст для поиска: "></TextBlock>
+                <TextBox Width="120"></TextBox>
+            </WrapPanel>
+
+            <WrapPanel HorizontalAlignment="Right">
+                <TextBlock Text="Выберите тип: "></TextBlock>
+                <ComboBox Width="120"></ComboBox>
+            </WrapPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>
