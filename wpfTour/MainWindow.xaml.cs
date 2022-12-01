@@ -24,6 +24,8 @@ namespace wpfTour
         {
             InitializeComponent();
             FrameClass.frameClass = frame;
+            DataBaseConnection.tourEntities = new TourEntities();
+            FrameClass.frameClass.Navigate(new ListTour());
         }
     }
 }

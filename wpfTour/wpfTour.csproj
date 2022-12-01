@@ -64,9 +64,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ColorClass.cs" />
     <Compile Include="Country.cs">
       <DependentUpon>TourModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataBaseConnection.cs" />
     <Compile Include="FrameClass.cs" />
     <Compile Include="Hotel.cs">
       <DependentUpon>TourModel.tt</DependentUpon>
@@ -77,7 +79,7 @@
     <Compile Include="HotelImage.cs">
       <DependentUpon>TourModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ListTour.xaml.cs">
+    <Compile Include="Pages\ListTour.xaml.cs">
       <DependentUpon>ListTour.xaml</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
@@ -107,7 +109,7 @@
     <Compile Include="TypeOfTour.cs">
       <DependentUpon>TourModel.tt</DependentUpon>
     </Compile>
-    <Page Include="ListTour.xaml">
+    <Page Include="Pages\ListTour.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,6 +161,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\picture.png" />
     <Content Include="TourModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TourModel.Context.cs</LastGenOutput>
@@ -173,5 +176,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

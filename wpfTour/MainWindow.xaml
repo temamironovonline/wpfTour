@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpfTour"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1000">
+        Title="MainWindow" Height="650" Width="1050">
+
+    <Window.Background>
+        
+        <SolidColorBrush Color="#445c93"></SolidColorBrush>
+    </Window.Background>
+
     <Grid>
         <Frame Name="frame" NavigationUIVisibility="Hidden">
             
