@@ -14,9 +14,9 @@ namespace wpfTour
     
     public partial class TypeOfTour
     {
+        public int id { get; set; }
         public int TourId { get; set; }
         public int TypeId { get; set; }
-        public int id { get; set; }
     
         public virtual Tour Tour { get; set; }
         public virtual Type Type { get; set; }
