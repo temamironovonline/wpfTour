@@ -34,21 +34,33 @@ namespace wpfTour
             tourList.ItemsSource = tours;
         }
 
+        
+
         private void SearchData()
         {
-            int index = tourList.SelectedIndex;
-            List <Tour> tours = DataBaseConnection.tourEntities.Tour.ToList();
-            List<TypeOfTour> typeOfTours = DataBaseConnection.tourEntities.TypeOfTour.ToList();
+            int index = typeOfTours.SelectedIndex;
+            List<Tour> toursFromDB = DataBaseConnection.tourEntities.Tour.ToList();
+            List<Tour> tours = new List<Tour>();
+            List<Tour> toursForType = new List<Tour>();
 
             Regex regex = new Regex($@".*{searchTextBox.Text.ToLower()}.*");
 
-            tourList.ItemsSource = tours.Where(x => regex.IsMatch(x.Name.ToLower()));
+            tours = toursFromDB.Where(x => regex.IsMatch(x.Name.ToLower())).ToList();
+
             if (actualToursCheckBox.IsChecked == true)
-                tourList.ItemsSource = tours.Where(x => x.IsActual == true);
-            if (index != 0)
-                tourList.ItemsSource = tours.Where(x => typeOfTours);
+                tours = tours.Where(x => x.IsActual == true).ToList();
 
+            if (index > 0)
+            {
+                List<TypeOfTour> typeOfTours = DataBaseConnection.tourEntities.TypeOfTour.Where(x => x.TypeId == index).ToList();
+                foreach (TypeOfTour typeOfTour in typeOfTours)
+                {
+                    toursForType.Add(tours.FirstOrDefault(x => x.Id == typeOfTour.TourId));
+                }
+                tours = toursForType;
+            }
 
+            tourList.ItemsSource = tours;
         }
 
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
