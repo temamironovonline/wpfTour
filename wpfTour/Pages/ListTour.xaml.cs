@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Shapes;
 using Path = System.IO.Path;
 using System.Text.RegularExpressions;
+using System;
 
 namespace wpfTour
 {
@@ -17,6 +18,7 @@ namespace wpfTour
         {
             InitializeComponent();
             typeOfTours.SelectedIndex = 0;
+            priceOfTours.SelectedIndex = 0;
             List<Type> types = DataBaseConnection.tourEntities.Type.ToList();
             foreach(Type type in types)
             {
@@ -34,33 +36,51 @@ namespace wpfTour
             tourList.ItemsSource = tours;
         }
 
-        
 
+        List<Tour> tours = DataBaseConnection.tourEntities.Tour.ToList();
         private void SearchData()
         {
-            int index = typeOfTours.SelectedIndex;
-            List<Tour> toursFromDB = DataBaseConnection.tourEntities.Tour.ToList();
-            List<Tour> tours = new List<Tour>();
-            List<Tour> toursForType = new List<Tour>();
+            int indexTypeOfTours = typeOfTours.SelectedIndex;
+            int indexPriceOfTours = priceOfTours.SelectedIndex;
+            
+            List<Tour> toursFromDB = new List<Tour>();
+            
+            Regex regexName = new Regex($@".*{searchNameTextBox.Text.ToLower()}.*");
+            Regex regexDescription = new Regex($@".*{searchDescriptionTextBox.Text.ToLower()}.*");
 
-            Regex regex = new Regex($@".*{searchTextBox.Text.ToLower()}.*");
-
-            tours = toursFromDB.Where(x => regex.IsMatch(x.Name.ToLower())).ToList();
-
-            if (actualToursCheckBox.IsChecked == true)
-                tours = tours.Where(x => x.IsActual == true).ToList();
-
-            if (index > 0)
+            if (indexTypeOfTours > 0)
             {
-                List<TypeOfTour> typeOfTours = DataBaseConnection.tourEntities.TypeOfTour.Where(x => x.TypeId == index).ToList();
-                foreach (TypeOfTour typeOfTour in typeOfTours)
+                List<TypeOfTour> typeOfTours = DataBaseConnection.tourEntities.TypeOfTour.Where(x => x.TypeId == indexTypeOfTours).ToList();
+                foreach(TypeOfTour typeOfTour in typeOfTours)
                 {
-                    toursForType.Add(tours.FirstOrDefault(x => x.Id == typeOfTour.TourId));
+                    toursFromDB.Add(tours.FirstOrDefault(x => x.Id == typeOfTour.TourId));
                 }
-                tours = toursForType;
+
+            }
+            else
+            {
+                toursFromDB = DataBaseConnection.tourEntities.Tour.ToList();
             }
 
-            tourList.ItemsSource = tours;
+            toursFromDB = toursFromDB.Where(x => regexName.IsMatch(x.Name.ToLower())).ToList();
+            toursFromDB = toursFromDB.Where(x => regexDescription.IsMatch(x.Description.ToLower())).ToList();
+
+            if (actualToursCheckBox.IsChecked == true)
+                toursFromDB = toursFromDB.Where(x => x.IsActual == true).ToList();
+
+            if (indexPriceOfTours == 1)
+                toursFromDB = toursFromDB.OrderBy(x => x.Price).ToList();
+            else if (indexPriceOfTours == 2)
+                toursFromDB = toursFromDB.OrderByDescending(x => x.Price).ToList();
+
+            int countPrice = 0;
+            foreach(Tour tour in toursFromDB)
+            {
+                countPrice += Convert.ToInt32(tour.Price);
+            }
+
+            countAllTours.Text = countPrice.ToString();
+            tourList.ItemsSource = toursFromDB;
         }
 
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)

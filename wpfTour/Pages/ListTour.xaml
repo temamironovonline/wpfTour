@@ -14,26 +14,39 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
         <WrapPanel Grid.Row="0" HorizontalAlignment="Center">
 
-            <StackPanel HorizontalAlignment="Right" Margin="0,5,5,0">
-                <TextBlock Text="Введите текст для поиска: " Margin="0,0,0,5"></TextBlock>
-                <TextBlock HorizontalAlignment="Right" Text="Выберите тип: "></TextBlock>
+            <StackPanel HorizontalAlignment="Right" Margin="0,8,5,0">
+                <TextBlock HorizontalAlignment="Right" Text="Введите название: " Margin="0,0,0,10"></TextBlock>
+                <TextBlock HorizontalAlignment="Right" Text="Введите описание: " Margin="0,0,0,10"></TextBlock>
+                <TextBlock HorizontalAlignment="Right" Text="Выберите тип: " Margin="0,0,0,10"></TextBlock>
+                <TextBlock HorizontalAlignment="Right" Text="Сортировка по цене: "></TextBlock>
             </StackPanel>
 
             <StackPanel HorizontalAlignment="Right" Margin="0,5,0,0">
-                <TextBox Name="searchTextBox" TextChanged="searchTextBox_TextChanged" Margin="0,0,0,5" Width="160"></TextBox>
+                <TextBox Name="searchNameTextBox" TextChanged="searchTextBox_TextChanged" Margin="0,0,0,5" Height="22" Width="160"></TextBox>
+                <TextBox Name="searchDescriptionTextBox" TextChanged="searchTextBox_TextChanged" Margin="0,0,0,5" Height="22" Width="160"></TextBox>
                 <ComboBox Name="typeOfTours" SelectionChanged="typeOfTours_SelectionChanged" Margin="0,0,0,5" Width="160">
                     <ComboBoxItem>Все типы</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Name="priceOfTours" SelectionChanged="typeOfTours_SelectionChanged" Margin="0,0,0,5" Width="160">
+                    <ComboBoxItem>По умолчанию</ComboBoxItem>
+                    <ComboBoxItem>По возрастанию</ComboBoxItem>
+                    <ComboBoxItem>По убыванию</ComboBoxItem>
                 </ComboBox>
                 <CheckBox Checked="actualToursCheckBox_Checked" Unchecked="actualToursCheckBox_Checked" Name="actualToursCheckBox">Только актуальные туры</CheckBox>
             </StackPanel>
         </WrapPanel>
 
+        <StackPanel Grid.Row="0" HorizontalAlignment="Right">
+            <TextBlock>Общая стоимость туров:</TextBlock>
+            <TextBlock Name="countAllTours"></TextBlock>
+        </StackPanel>
+        
         <ListView Name="tourList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
