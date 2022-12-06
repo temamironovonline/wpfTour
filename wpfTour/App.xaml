@@ -4,6 +4,46 @@
              xmlns:local="clr-namespace:wpfTour"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
+        <Style x:Key="textBoxStyle" TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="TextAlignment" Value="left"/>
+            <Setter Property="Foreground" Value="#445c93"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#445c93"/>
+        </Style>
+
+        <Style x:Key="textBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#445c93"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+
+        <Style x:Key="comboBoxStyle" TargetType="ComboBox">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Foreground" Value="#445c93"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="Width" Value="160"/>
+        </Style>
+
+        <Style x:Key="buttonStyle" TargetType="Button">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Background" Value="#445c93"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        
+        
     </Application.Resources>
 </Application>

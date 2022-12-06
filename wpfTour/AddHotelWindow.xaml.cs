@@ -69,6 +69,7 @@ namespace wpfTour
                 {
                     if (countryComboBox.SelectedIndex != 0)
                     {
+
                         Country country = DataBaseConnection.tourEntities.Country.FirstOrDefault(x => x.Name == countryComboBox.Text);
                         if (hotel.Id > 0)
                         {
@@ -85,6 +86,7 @@ namespace wpfTour
                             Description = descriptionTextBox.Text,
                             CountryCode = country.Code,
                         };
+
                     }
                     else
                     {
