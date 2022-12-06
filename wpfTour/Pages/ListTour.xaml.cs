@@ -97,5 +97,10 @@ namespace wpfTour
         {
             SearchData();
         }
+
+        private void listHotelButton_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            FrameClass.frameClass.Navigate(new ListHotel());
+        }
     }
 }

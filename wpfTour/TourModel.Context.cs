@@ -29,6 +29,7 @@ namespace wpfTour
         public virtual DbSet<Hotel> Hotel { get; set; }
         public virtual DbSet<HotelComment> HotelComment { get; set; }
         public virtual DbSet<HotelImage> HotelImage { get; set; }
+        public virtual DbSet<HotelOfTour> HotelOfTour { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tour> Tour { get; set; }
         public virtual DbSet<Type> Type { get; set; }

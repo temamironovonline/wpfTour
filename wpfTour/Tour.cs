@@ -17,8 +17,8 @@ namespace wpfTour
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tour()
         {
+            this.HotelOfTour = new HashSet<HotelOfTour>();
             this.TypeOfTour = new HashSet<TypeOfTour>();
-            this.Hotel = new HashSet<Hotel>();
         }
     
         public int Id { get; set; }
@@ -30,8 +30,8 @@ namespace wpfTour
         public bool IsActual { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TypeOfTour> TypeOfTour { get; set; }
+        public virtual ICollection<HotelOfTour> HotelOfTour { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hotel> Hotel { get; set; }
+        public virtual ICollection<TypeOfTour> TypeOfTour { get; set; }
     }
 }

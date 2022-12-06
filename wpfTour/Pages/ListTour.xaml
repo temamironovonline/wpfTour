@@ -46,6 +46,8 @@
             <TextBlock>Общая стоимость туров:</TextBlock>
             <TextBlock Name="countAllTours"></TextBlock>
         </StackPanel>
+
+        <Button Name="listHotelButton" Width="150" Height="50" Content="Список отелей" HorizontalAlignment="Left" Click="listHotelButton_Click"></Button>
         
         <ListView Name="tourList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent">
             <ListView.ItemsPanel>

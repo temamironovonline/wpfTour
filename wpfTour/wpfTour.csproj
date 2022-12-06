@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddHotelWindow.xaml.cs">
+      <DependentUpon>AddHotelWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ColorClass.cs" />
     <Compile Include="Country.cs">
       <DependentUpon>TourModel.tt</DependentUpon>
@@ -78,6 +81,12 @@
     </Compile>
     <Compile Include="HotelImage.cs">
       <DependentUpon>TourModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelOfTour.cs">
+      <DependentUpon>TourModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListHotel.xaml.cs">
+      <DependentUpon>ListHotel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ListTour.xaml.cs">
       <DependentUpon>ListTour.xaml</DependentUpon>
@@ -109,6 +118,14 @@
     <Compile Include="TypeOfTour.cs">
       <DependentUpon>TourModel.tt</DependentUpon>
     </Compile>
+    <Page Include="AddHotelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListHotel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ListTour.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

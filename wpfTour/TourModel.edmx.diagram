@@ -4,21 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8babb3ded502449c9cf3140760cfcf7f" Name="Diagram1">
-        <EntityTypeShape EntityType="hotels21Model.Country" Width="1.5" PointX="0.75" PointY="4.5" />
-        <EntityTypeShape EntityType="hotels21Model.Hotel" Width="1.5" PointX="3" PointY="4" />
-        <EntityTypeShape EntityType="hotels21Model.HotelComment" Width="1.5" PointX="5.25" PointY="7.25" />
-        <EntityTypeShape EntityType="hotels21Model.HotelImage" Width="1.5" PointX="5.25" PointY="4.75" />
+      <Diagram DiagramId="8babb3ded502449c9cf3140760cfcf7f" Name="Diagram1" ZoomLevel="108">
+        <EntityTypeShape EntityType="hotels21Model.Country" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="hotels21Model.Hotel" Width="1.5" PointX="3" PointY="3.5" />
+        <EntityTypeShape EntityType="hotels21Model.HotelComment" Width="1.5" PointX="5.25" PointY="7.875" />
+        <EntityTypeShape EntityType="hotels21Model.HotelImage" Width="1.5" PointX="5.25" PointY="2.5" />
+        <EntityTypeShape EntityType="hotels21Model.HotelOfTour" Width="1.5" PointX="8.25" PointY="3.875" />
         <EntityTypeShape EntityType="hotels21Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="hotels21Model.Tour" Width="1.5" PointX="5.25" PointY="1.25" />
-        <EntityTypeShape EntityType="hotels21Model.Type" Width="1.5" PointX="5.25" PointY="10.75" />
-        <EntityTypeShape EntityType="hotels21Model.TypeOfTour" Width="1.5" PointX="7.5" PointY="1.625" />
+        <EntityTypeShape EntityType="hotels21Model.Tour" Width="1.5" PointX="6" PointY="11.5" />
+        <EntityTypeShape EntityType="hotels21Model.Type" Width="1.5" PointX="6" PointY="16" />
+        <EntityTypeShape EntityType="hotels21Model.TypeOfTour" Width="1.5" PointX="8.25" PointY="11.875" />
         <AssociationConnector Association="hotels21Model.FK_Hotel_Country" />
         <AssociationConnector Association="hotels21Model.FK_HotelComment_Hotel" />
         <AssociationConnector Association="hotels21Model.FK_HotelImage_Hotel" />
+        <AssociationConnector Association="hotels21Model.FK_HotelOfTour_Hotel" />
+        <AssociationConnector Association="hotels21Model.FK_HotelOfTour_Tour" />
         <AssociationConnector Association="hotels21Model.FK_TypeOfTour_Tour" />
         <AssociationConnector Association="hotels21Model.FK_TypeOfTour_Type" />
-        <AssociationConnector Association="hotels21Model.HotelOfTour" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
