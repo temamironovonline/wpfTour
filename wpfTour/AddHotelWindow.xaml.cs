@@ -36,9 +36,13 @@ namespace wpfTour
 
         }
 
+        public Hotel hotel = new Hotel();
+
         public AddHotelWindow(Hotel hotel)
         {
             InitializeComponent();
+
+            this.hotel = hotel;
 
             List<Country> countries = DataBaseConnection.tourEntities.Country.ToList();
 
@@ -66,13 +70,20 @@ namespace wpfTour
                     if (countryComboBox.SelectedIndex != 0)
                     {
                         Country country = DataBaseConnection.tourEntities.Country.FirstOrDefault(x => x.Name == countryComboBox.Text);
-                        Hotel hotel = new Hotel()
+                        if (hotel.Id > 0)
+                        {
+                            hotel.Name = nameHotelTextBox.Text;
+                            hotel.CountOfStars = countStarsComboBox.SelectedIndex;
+                            hotel.Description = descriptionTextBox.Text;
+                            hotel.CountryCode = country.Code;
+                        }
+                        
+                        Hotel newHotel = new Hotel()
                         {
                             Name = nameHotelTextBox.Text,
                             CountOfStars = countStarsComboBox.SelectedIndex,
                             Description = descriptionTextBox.Text,
                             CountryCode = country.Code,
-
                         };
                     }
                     else

@@ -17,23 +17,15 @@ namespace wpfTour
         public ListTour()
         {
             InitializeComponent();
+            tourList.ItemsSource = DataBaseConnection.tourEntities.Tour.ToList();
             typeOfTours.SelectedIndex = 0;
             priceOfTours.SelectedIndex = 0;
             List<Type> types = DataBaseConnection.tourEntities.Type.ToList();
+            
             foreach(Type type in types)
             {
                 typeOfTours.Items.Add(type.Name);
-            }
-            List <Tour> tours = DataBaseConnection.tourEntities.Tour.ToList();
-            string path;
-            path = Directory.GetCurrentDirectory();
-            path = path.Replace("\\wpfTour\\bin\\Debug", "");
-            
-            foreach (Tour tour in tours)
-            {
-                tour.ImagePreview = path+tour.ImagePreview;
-            }
-            tourList.ItemsSource = tours;
+            }   
         }
 
 

@@ -85,12 +85,13 @@
     <Compile Include="HotelOfTour.cs">
       <DependentUpon>TourModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ListHotel.xaml.cs">
+    <Compile Include="Pages\ListHotel.xaml.cs">
       <DependentUpon>ListHotel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ListTour.xaml.cs">
       <DependentUpon>ListTour.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pagination.cs" />
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>TourModel.tt</DependentUpon>
     </Compile>
@@ -122,7 +123,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ListHotel.xaml">
+    <Page Include="Pages\ListHotel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,6 +180,28 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\picture.png" />
+    <Resource Include="images\Болгарское наследие.jpg" />
+    <Resource Include="images\Волшебный Восток.jpg" />
+    <Resource Include="images\Город с большими амбициями.jpg" />
+    <Resource Include="images\Город четырех ворот.jpg" />
+    <Resource Include="images\Древний Минск.jpg" />
+    <Resource Include="images\Жемчужина Татарстана.jpg" />
+    <Resource Include="images\Знакомьтесь, Амстердам!.jpg" />
+    <Resource Include="images\Из Алании к загадочным пещерам Алтынбешик.jpg" />
+    <Resource Include="images\Многоликий Сувон.jpg" />
+    <Resource Include="images\Москва поэтическая.jpg" />
+    <Resource Include="images\Незабываемый Дели.jpg" />
+    <Resource Include="images\По старому Таллину.jpg" />
+    <Resource Include="images\Романтика белых ночей и разводных мостов.jpg" />
+    <Resource Include="images\Свидание с Хельсинки.jpg" />
+    <Resource Include="images\Сердце Ирана.jpg" />
+    <Resource Include="images\Сердце Северной Карелии.jpg" />
+    <Resource Include="images\Старый город.jpg" />
+    <Resource Include="images\Столица страны Утренней Свежести.jpg" />
+    <Resource Include="images\Страна идеальной гармонии.jpg" />
+    <Resource Include="images\Урбанистическая Бразилия.jpg" />
+    <Resource Include="images\Финская крепость.jpg" />
+    <Resource Include="images\Финский романтизм.jpg" />
     <Content Include="TourModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TourModel.Context.cs</LastGenOutput>
