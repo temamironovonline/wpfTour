@@ -16,26 +16,28 @@
         </Grid.RowDefinitions>
         
         <WrapPanel VerticalAlignment="Center">
-            <Button Name="backButton" Content="Назад" Width="150" Height="50" HorizontalAlignment="Left" Click="backButton_Click"></Button>
-            <Button Name="addButton" Content="Добавить" Width="150" Height="50" HorizontalAlignment="Left" Click="addButton_Click"></Button>
+            <Button Name="backButton" Content="Назад" Style="{StaticResource buttonStyle}" HorizontalAlignment="Left" Click="backButton_Click"></Button>
+            <Button Name="addButton" Content="Добавить" Style="{StaticResource buttonStyle}" HorizontalAlignment="Left" Click="addButton_Click"></Button>
         </WrapPanel>
 
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Отели" Style="{StaticResource textBlockStyle}" FontWeight="Bold" FontSize="20"></TextBlock>
+        
         <ListView Name="hotelList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Background="Transparent" HorizontalContentAlignment="Stretch">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Padding="5" CornerRadius="5" BorderThickness="1" Background="#bae3e8">
+                    <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="#445c93" Background="Transparent">
                         <Grid>
                             
-                            <StackPanel>
-                                <TextBlock Text="{Binding Name, StringFormat=Название отеля: {0}}"></TextBlock>
-                                <TextBlock Text="{Binding CountOfStars, StringFormat=Количество звезд: {0}}"></TextBlock>
-                                <TextBlock Text="{Binding Country.Name, StringFormat=Страна: {0}}"></TextBlock>
-                                <TextBlock Name="countHotelInTours" Uid="{Binding Id}" Text="" Loaded="countHotelInToursTextBlock_Loaded"></TextBlock>
+                            <StackPanel HorizontalAlignment="Left">
+                                <TextBlock Text="{Binding Name, StringFormat=Название отеля: {0}}" Style="{StaticResource textBlockStyle}"></TextBlock>
+                                <TextBlock Text="{Binding CountOfStars, StringFormat=Количество звезд: {0}}" Style="{StaticResource textBlockStyle}"></TextBlock>
+                                <TextBlock Text="{Binding Country.Name, StringFormat=Страна: {0}}" Style="{StaticResource textBlockStyle}"></TextBlock>
+                                <TextBlock Name="countHotelInTours" Uid="{Binding Id}" Text="" Loaded="countHotelInToursTextBlock_Loaded" Style="{StaticResource textBlockStyle}"></TextBlock>
                             </StackPanel>
                             
                             <StackPanel>
-                            <Button Name="updateHotelButton" Uid="{Binding Id}" Content="Редактировать" HorizontalAlignment="Right" Width="100" Margin="0,0,0,5" Click="updateHotelButton_Click"></Button>
-                            <Button Name="deleteHotelButton" Uid="{Binding Id}" Content="Удалить" HorizontalAlignment="Right" Width="100" Click="deleteHotelButton_Click"></Button>
+                            <Button Name="updateHotelButton" Uid="{Binding Id}" Content="Редактировать" HorizontalAlignment="Right" Style="{StaticResource buttonStyle}" Click="updateHotelButton_Click"></Button>
+                            <Button Name="deleteHotelButton" Uid="{Binding Id}" Content="Удалить" HorizontalAlignment="Right" Style="{StaticResource buttonStyle}" Click="deleteHotelButton_Click"></Button>
                             </StackPanel>
 
                         </Grid>
@@ -44,17 +46,19 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
-            <GroupBox Header="Введите количество записей на одной странице">
-                <TextBox Name="txtPageCount" TextChanged="txtPageCount_TextChanged"/>
-            </GroupBox>
-            <TextBlock Name="txtPrev" Uid="prev" Text=" &lt; " MouseDown="GoPage_MouseDown"/>
-            <TextBlock Name="txt1" Uid="1" Text="{Binding  Path = NPage[0]}" Visibility="{Binding Visible[0]}" FontWeight="{Binding Bold[0]}" MouseDown="GoPage_MouseDown"/>
-            <TextBlock Name="txt2" Uid="2" Text="{Binding  Path = NPage[1]}" Visibility="{Binding Visible[1]}" FontWeight="{Binding Bold[1]}" MouseDown="GoPage_MouseDown"/>
-            <TextBlock Name="txt3" Uid="3" Text="{Binding  Path = NPage[2]}" Visibility="{Binding Visible[2]}" FontWeight="{Binding Bold[2]}" MouseDown="GoPage_MouseDown"/>
-            <TextBlock Name="txt4" Uid="4" Text="{Binding  Path = NPage[3]}" Visibility="{Binding Visible[3]}" FontWeight="{Binding Bold[3]}" MouseDown="GoPage_MouseDown"/>
-            <TextBlock Name="txt5" Uid="5" Text="{Binding  Path = NPage[4]}" Visibility="{Binding Visible[4]}" FontWeight="{Binding Bold[4]}" MouseDown="GoPage_MouseDown"/>
-            <TextBlock Name="txtNext" Uid="next" Text=" &gt;" MouseDown="GoPage_MouseDown"/>
+        <StackPanel Grid.Row="2" VerticalAlignment="Center" Margin="5,0,0,0">
+            <TextBlock Text="Введите количество записей на одной странице" Style="{StaticResource textBlockStyle}"></TextBlock>
+            <TextBox Name="txtPageCount" TextChanged="txtPageCount_TextChanged" HorizontalAlignment="Left" Style="{StaticResource textBoxStyle}"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Name="txtPrev" Uid="prev" Text=" &lt; " MouseDown="GoPage_MouseDown" Style="{StaticResource textBlockStyle}"/>
+            <TextBlock Name="txt1" Uid="1" Text="{Binding  Path = NPage[0]}" Visibility="{Binding Visible[0]}" FontWeight="{Binding Bold[0]}" MouseDown="GoPage_MouseDown" Style="{StaticResource textBlockStyle}"/>
+            <TextBlock Name="txt2" Uid="2" Text="{Binding  Path = NPage[1]}" Visibility="{Binding Visible[1]}" FontWeight="{Binding Bold[1]}" MouseDown="GoPage_MouseDown" Style="{StaticResource textBlockStyle}"/>
+            <TextBlock Name="txt3" Uid="3" Text="{Binding  Path = NPage[2]}" Visibility="{Binding Visible[2]}" FontWeight="{Binding Bold[2]}" MouseDown="GoPage_MouseDown" Style="{StaticResource textBlockStyle}"/>
+            <TextBlock Name="txt4" Uid="4" Text="{Binding  Path = NPage[3]}" Visibility="{Binding Visible[3]}" FontWeight="{Binding Bold[3]}" MouseDown="GoPage_MouseDown" Style="{StaticResource textBlockStyle}"/>
+            <TextBlock Name="txt5" Uid="5" Text="{Binding  Path = NPage[4]}" Visibility="{Binding Visible[4]}" FontWeight="{Binding Bold[4]}" MouseDown="GoPage_MouseDown" Style="{StaticResource textBlockStyle}"/>
+            <TextBlock Name="txtNext" Uid="next" Text=" &gt;" MouseDown="GoPage_MouseDown" Style="{StaticResource textBlockStyle}"/>
         </StackPanel>
 
     </Grid>

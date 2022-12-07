@@ -12,13 +12,13 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Name="backButton" Content="Назад" Width="150" Height="50" HorizontalAlignment="Left"></Button>
+        <TextBlock Name="headerAddWindow" Text="Добавление отеля" Style="{StaticResource textBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"></TextBlock>
 
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="Наименование отеля"></TextBlock>
-            <TextBox Name="nameHotelTextBox"></TextBox>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Наименование отеля" Style="{StaticResource textBlockStyle}"></TextBlock>
+            <TextBox Name="nameHotelTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
 
-            <TextBlock Text="Количество звезд"></TextBlock>
+            <TextBlock Text="Количество звезд" Style="{StaticResource textBlockStyle}"></TextBlock>
             <ComboBox Name="countStarsComboBox">
                 <ComboBoxItem>0</ComboBoxItem>
                 <ComboBoxItem>1</ComboBoxItem>
@@ -27,14 +27,14 @@
                 <ComboBoxItem>4</ComboBoxItem>
                 <ComboBoxItem>5</ComboBoxItem>
             </ComboBox>
-            
-            <TextBlock Text="Описание отеля"></TextBlock>
-            <TextBox Name="descriptionTextBox" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
 
-            <TextBlock Text="Страна"></TextBlock>
-            <ComboBox Name="countryComboBox"></ComboBox>
+            <TextBlock Text="Описание отеля" Style="{StaticResource textBlockStyle}"></TextBlock>
+            <TextBox Name="descriptionTextBox" TextWrapping="Wrap" Height="120" AcceptsReturn="True" Style="{StaticResource textBoxStyle}"></TextBox>
 
-            <Button Name="addButton" Click="addButton_Click" Content="Добавить"></Button>
+            <TextBlock Text="Страна" Style="{StaticResource textBlockStyle}"></TextBlock>
+            <ComboBox Name="countryComboBox" Margin="0,0,0,20"></ComboBox>
+
+            <Button Name="addButton" Click="addButton_Click" Content="Добавить" Style="{StaticResource buttonStyle}"></Button>
         </StackPanel>
     </Grid>
 </Window>

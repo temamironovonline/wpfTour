@@ -44,6 +44,9 @@ namespace wpfTour
 
             this.hotel = hotel;
 
+            addButton.Content = "Изменить";
+            headerAddWindow.Text = "Редактирование отеля";
+
             List<Country> countries = DataBaseConnection.tourEntities.Country.ToList();
 
             int index = countries.FindIndex(x => x.Code == hotel.CountryCode)+1;
@@ -77,16 +80,23 @@ namespace wpfTour
                             hotel.CountOfStars = countStarsComboBox.SelectedIndex;
                             hotel.Description = descriptionTextBox.Text;
                             hotel.CountryCode = country.Code;
+                            
                         }
-                        
-                        Hotel newHotel = new Hotel()
+                        else
                         {
-                            Name = nameHotelTextBox.Text,
-                            CountOfStars = countStarsComboBox.SelectedIndex,
-                            Description = descriptionTextBox.Text,
-                            CountryCode = country.Code,
-                        };
+                            Hotel newHotel = new Hotel()
+                            {
+                                Name = nameHotelTextBox.Text,
+                                CountOfStars = countStarsComboBox.SelectedIndex,
+                                Description = descriptionTextBox.Text,
+                                CountryCode = country.Code,
+                            };
+                            DataBaseConnection.tourEntities.Hotel.Add(newHotel);
+                        }
 
+                        DataBaseConnection.tourEntities.SaveChanges();
+                        MessageBox.Show("Успешное выполнение операции");
+                        this.Close();
                     }
                     else
                     {

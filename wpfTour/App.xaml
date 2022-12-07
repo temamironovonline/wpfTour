@@ -20,7 +20,7 @@
         <Style x:Key="textBlockStyle" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="13"/>
-            <Setter Property="TextAlignment" Value="Center"/>
+         
             <Setter Property="Foreground" Value="#445c93"/>
             <Setter Property="Margin" Value="0,0,0,10"/>
         </Style>
